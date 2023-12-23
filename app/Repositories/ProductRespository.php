@@ -1,19 +1,19 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\EmployeeModel;
+use App\Models\ProductModel;
 use Illuminate\Support\Carbon;
 
-  class EmployeeRespository {
+  class ProductRespository {
 
-    public function getEmployees()
+    public function getProducts()
     {
-        return EmployeeModel::all();
+        return ProductModel::all(); //get along with cate using eloquent ORM model
     }
 
     public function getEmployee($empID)
     {
-        return EmployeeModel::find($empID);
+        return ProductModel::find($empID);
     }
 
     public function createEmployees($employeeData)
@@ -26,7 +26,7 @@ use Illuminate\Support\Carbon;
             'address' => ( isset($employeeData['address']) ) ? $employeeData['address'] : '',
             'photo' => ( isset($employeeData['photo_url']) ) ? $employeeData['photo_url'] : '',
         );
-        return EmployeeModel::create($employeePayload);
+        return ProductModel::create($employeePayload);
     }
 
     public function updateEmployees($employeeData)
@@ -39,12 +39,12 @@ use Illuminate\Support\Carbon;
             'address' => ( isset($employeeData['address']) ) ? $employeeData['address'] : '',
             'photo' => ( isset($employeeData['photo_url']) ) ? $employeeData['photo_url'] : '',
         );
-        return EmployeeModel::where('id', '=', $employeeData['id'])->update($employeePayload);
+        return ProductModel::where('id', '=', $employeeData['id'])->update($employeePayload);
     }
 
     public function deleteEmployees($employeeId)
     {
-        return EmployeeModel::where('id', '=', $employeeId)->delete();
+        return ProductModel::where('id', '=', $employeeId)->delete();
     }
 
   }
