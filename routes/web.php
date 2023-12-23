@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +14,5 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('employees',[EmployeeController::class,'getListOfEmployee']);
+Route::get('products',[ProductController::class,'getListOfProducts']);
+
